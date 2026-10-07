@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="QuickQuote — a simple professional quoting tool demo by Christal Haines Digital Solutions."
+  >
+
+  <meta
+    name="theme-color"
+    content="#6d5dfc"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.webmanifest"
+  >
+
+  <title>QuickQuote | CHDS Digital Tools</title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="site-header">
+
+    <div class="header-inner">
+
+      <a
+        href="../portfolio/index.html"
+        class="back-link"
+      >
+        <span aria-hidden="true">←</span>
+        <span>Back to portfolio</span>
+      </a>
+
+
+      <div class="brand">
+
+        <span class="brand-mark">
+          CH
+        </span>
+
+        <div class="brand-copy">
+
+          <strong>
+            Christal Haines
+          </strong>
+
+          <span>
+            Digital Solutions
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <span class="tool-label">
+          QuickQuote
+        </span>
+
+        <button
+          id="install"
+          class="install-button"
+          hidden
+          type="button"
+        >
+          Install App
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main class="page-container">
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero hero-quote">
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          CHDS DIGITAL TOOL
+        </span>
+
+        <h1>
+          Create professional
+          <span>quotes in minutes.</span>
+        </h1>
+
+        <p class="hero-description">
+          Add your services or products, calculate the total
+          and save recent quotes directly on your device.
+        </p>
+
+
+        <div class="hero-meta">
+
+          <div class="hero-meta-item">
+
+            <span class="meta-icon">
+              ✓
+            </span>
+
+            <span>
+              Fast calculations
+            </span>
+
+          </div>
+
+
+          <div class="hero-meta-item">
+
+            <span class="meta-icon">
+              ✓
+            </span>
+
+            <span>
+              Mobile friendly
+            </span>
+
+          </div>
+
+
+          <div class="hero-meta-item">
+
+            <span class="meta-icon">
+              ✓
+            </span>
+
+            <span>
+              Saved locally
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================================
+           QUOTE PREVIEW
+      ================================================= -->
+
+      <div class="hero-card quote-preview-card">
+
+        <div class="quote-preview-header">
+
+          <div>
+
+            <span>
+              QUICKQUOTE
+            </span>
+
+            <strong>
+              Quote #0004
+            </strong>
+
+          </div>
+
+          <span class="preview-status">
+            Draft
+          </span>
+
+        </div>
+
+
+        <div class="quote-preview-body">
+
+          <div class="preview-item">
+
+            <div>
+              <strong>Website Design</strong>
+              <span>1 × R3,500.00</span>
+            </div>
+
+            <strong>
+              R3,500.00
+            </strong>
+
+          </div>
+
+
+          <div class="preview-item">
+
+            <div>
+              <strong>Hosting</strong>
+              <span>1 × R150.00</span>
+            </div>
+
+            <strong>
+              R150.00
+            </strong>
+
+          </div>
+
+
+          <div class="preview-total">
+
+            <span>
+              Total
+            </span>
+
+            <strong>
+              R3,650.00
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUOTE WORKSPACE
+    ==================================================== -->
+
+    <div class="quote-workspace">
+
+
+      <!-- =================================================
+           LEFT COLUMN — ADD ITEM
+      ================================================== -->
+
+      <section class="card add-item-section">
+
+        <div class="section-heading">
+
+          <div class="step-badge">
+            01
+          </div>
+
+          <div>
+
+            <span class="section-eyebrow">
+              Build your quote
+            </span>
+
+            <h2>
+              Add an item
+            </h2>
+
+            <p>
+              Add a service or product to your quote.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <form id="itemForm">
+
+          <label class="field">
+
+            <span class="field-label">
+              Service or product
+            </span>
+
+            <input
+              id="name"
+              type="text"
+              placeholder="e.g. Website Design"
+              autocomplete="off"
+              required
+            >
+
+          </label>
+
+
+          <div class="quote-input-row">
+
+            <label class="field">
+
+              <span class="field-label">
+                Quantity
+              </span>
+
+              <input
+                id="qty"
+                type="number"
+                min="1"
+                value="1"
+                required
+              >
+
+            </label>
+
+
+            <label class="field">
+
+              <span class="field-label">
+                Price
+              </span>
+
+              <div class="currency-input">
+
+                <span>
+                  R
+                </span>
+
+                <input
+                  id="price"
+                  type="number"
+                  min="0"
+                  step=".01"
+                  placeholder="0.00"
+                  required
+                >
+
+              </div>
+
+            </label>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="primary-action full-action"
+          >
+            <span>Add item</span>
+            <span aria-hidden="true">+</span>
+          </button>
+
+        </form>
+
+
+        <div class="quick-tip">
+
+          <span class="tip-icon">
+            ✦
+          </span>
+
+          <div>
+
+            <strong>
+              Quick tip
+            </strong>
+
+            <p>
+              Add each service or product separately so your
+              customer can clearly see what's included.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           RIGHT COLUMN — CURRENT QUOTE
+      ================================================== -->
+
+      <section class="card current-quote-section">
+
+
+        <div class="section-title">
+
+          <div>
+
+            <span class="section-eyebrow">
+              Your quote
+            </span>
+
+            <h2>
+              Current quote
+            </h2>
+
+          </div>
+
+
+          <button
+            class="ghost"
+            id="save"
+            type="button"
+          >
+            Save quote
+          </button>
+
+        </div>
+
+
+        <!-- ==============================================
+             QUOTE HEADER
+        =============================================== -->
+
+        <div class="quote-document-header">
+
+          <div>
+
+            <span class="quote-label">
+              QUICKQUOTE
+            </span>
+
+            <p>
+              Professional business quotation
+            </p>
+
+          </div>
+
+          <div class="quote-document-meta">
+
+            <span>
+              Date
+            </span>
+
+            <strong>
+              Today
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==============================================
+             ITEMS
+        =============================================== -->
+
+        <div class="quote-items-header">
+
+          <span>
+            Item
+          </span>
+
+          <span>
+            Qty
+          </span>
+
+          <span>
+            Amount
+          </span>
+
+        </div>
+
+
+        <div
+          id="items"
+          class="items"
+        >
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              +
+            </div>
+
+            <strong>
+              No items yet
+            </strong>
+
+            <p>
+              Add your first service or product to start
+              building the quote.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==============================================
+             TOTAL
+        =============================================== -->
+
+        <div class="quote-total-area">
+
+          <div class="total-row">
+
+            <span>
+              Subtotal
+            </span>
+
+            <span id="subtotal">
+              R 0.00
+            </span>
+
+          </div>
+
+
+          <div class="total">
+
+            <span>
+              Total
+            </span>
+
+            <strong id="total">
+              R 0.00
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="quote-actions">
+
+          <button
+            class="ghost"
+            type="button"
+            id="clearQuote"
+          >
+            Clear quote
+          </button>
+
+          <button
+            class="primary-action"
+            type="button"
+            id="shareQuote"
+          >
+            <span>
+              Share quote
+            </span>
+
+            <span aria-hidden="true">
+              →
+            </span>
+
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- ===================================================
+         RECENT QUOTES
+    ==================================================== -->
+
+    <section class="card history-section">
+
+      <div class="section-title">
+
+        <div>
+
+          <span class="section-eyebrow">
+            Saved on this device
+          </span>
+
+          <h2>
+            Recent quotes
+          </h2>
+
+        </div>
+
+        <span class="history-count">
+          Local
+        </span>
+
+      </div>
+
+
+      <p class="section-description">
+        Keep track of your recent quotes without needing
+        a complicated accounting system.
+      </p>
+
+
+      <div id="history">
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            ✦
+          </div>
+
+          <strong>
+            No saved quotes yet
+          </strong>
+
+          <p>
+            Quotes you save will appear here for quick access.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FEATURE STRIP
+    ==================================================== -->
+
+    <section class="feature-strip">
+
+      <div class="feature-item">
+
+        <span class="feature-number">
+          01
+        </span>
+
+        <div>
+
+          <strong>
+            Add
+          </strong>
+
+          <p>
+            Add services or products.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature-item">
+
+        <span class="feature-number">
+          02
+        </span>
+
+        <div>
+
+          <strong>
+            Calculate
+          </strong>
+
+          <p>
+            Totals are calculated automatically.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature-item">
+
+        <span class="feature-number">
+          03
+        </span>
+
+        <div>
+
+          <strong>
+            Save
+          </strong>
+
+          <p>
+            Keep recent quotes on your device.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FOOTER CTA
+    ==================================================== -->
+
+    <section class="tool-footer">
+
+      <div>
+
+        <span class="section-eyebrow">
+          CHDS Digital Solutions
+        </span>
+
+        <h2>
+          Simple tools for better business.
+        </h2>
+
+        <p>
+          Practical digital solutions designed to make
+          everyday business processes easier.
+        </p>
+
+      </div>
+
+
+      <a
+        href="../portfolio/index.html"
+        class="footer-link"
+      >
+        Explore the portfolio
+        <span aria-hidden="true">→</span>
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       SCRIPT
+  ====================================================== -->
+
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
