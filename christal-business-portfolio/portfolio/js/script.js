@@ -1,5 +1,6 @@
 /* =========================================================
-   CHRISTAL HAINES DIGITAL SOLUTIONS
+   HAIVEXA
+   Technology & Digital Solutions
    Main JavaScript
 ========================================================= */
 
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle mobile menu
   toggle?.addEventListener("click", (event) => {
+
     event.stopPropagation();
 
     const open = nav?.classList.toggle("open");
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "Close navigation menu"
         : "Open navigation menu"
     );
+
   });
 
 
@@ -150,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!item.open) return;
 
 
-      // Close other FAQ items when one is opened
+      // Keep only one FAQ item open at a time
       faqItems.forEach((otherItem) => {
 
         if (otherItem !== item) {
@@ -165,27 +168,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     PORTFOLIO / PROJECT NAVIGATION
-     
+     HAIVEXA PROJECT NAVIGATION
+
      Remembers exactly where the visitor was on the
-     portfolio before opening a project or demo.
+     HAIVEXA website before opening a working demo.
   ======================================================= */
 
-  const PORTFOLIO_SCROLL_KEY =
-    "christalPortfolioScrollPosition";
+  const HAIVEXA_SCROLL_KEY =
+    "haivexaScrollPosition";
 
-  const PORTFOLIO_RETURN_KEY =
-    "christalPortfolioReturn";
+  const HAIVEXA_RETURN_KEY =
+    "haivexaReturn";
 
 
   /*
-     Save the visitor's current position on the portfolio.
+     Save the visitor's current position.
   */
 
   function savePortfolioPosition() {
 
     sessionStorage.setItem(
-      PORTFOLIO_SCROLL_KEY,
+      HAIVEXA_SCROLL_KEY,
       String(window.scrollY)
     );
 
@@ -193,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-     Mark that the visitor is leaving the portfolio
+     Mark that the visitor is leaving HAIVEXA
      for an internal project/demo page.
   */
 
@@ -202,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     savePortfolioPosition();
 
     sessionStorage.setItem(
-      PORTFOLIO_RETURN_KEY,
+      HAIVEXA_RETURN_KEY,
       "true"
     );
 
@@ -211,12 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
      Identify internal project/demo links.
-     
-     These are the projects that live inside the portfolio
-     folder structure.
 
-     External links such as GitHub, WhatsApp, LinkedIn,
-     email, etc. are deliberately ignored.
+     External links such as GitHub, WhatsApp,
+     LinkedIn and email are deliberately ignored.
   */
 
   const projectLinks = document.querySelectorAll(
@@ -251,20 +251,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     RESTORE PORTFOLIO POSITION
+     RESTORE HAIVEXA PAGE POSITION
   ======================================================= */
 
   function restorePortfolioPosition() {
 
     const shouldRestore =
       sessionStorage.getItem(
-        PORTFOLIO_RETURN_KEY
+        HAIVEXA_RETURN_KEY
       );
 
 
     const savedPosition =
       sessionStorage.getItem(
-        PORTFOLIO_SCROLL_KEY
+        HAIVEXA_SCROLL_KEY
       );
 
 
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (Number.isNaN(position)) {
 
       sessionStorage.removeItem(
-        PORTFOLIO_RETURN_KEY
+        HAIVEXA_RETURN_KEY
       );
 
       return;
@@ -303,21 +303,17 @@ document.addEventListener("DOMContentLoaded", () => {
     /*
        Remove the return flag immediately.
 
-       This means a normal page refresh will NOT keep
-       jumping the visitor back to the old position.
+       This prevents a normal page refresh from
+       jumping back to the previous position.
     */
 
     sessionStorage.removeItem(
-      PORTFOLIO_RETURN_KEY
+      HAIVEXA_RETURN_KEY
     );
 
 
     /*
-       Wait for the page layout to be ready before restoring
-       the scroll position.
-
-       Two animation frames give the browser enough time to
-       calculate the full page height.
+       Wait for the page layout to be ready.
     */
 
     requestAnimationFrame(() => {
@@ -338,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
-     Restore position after the portfolio loads.
+     Restore position after HAIVEXA loads.
   */
 
   restorePortfolioPosition();
@@ -351,9 +347,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("pageshow", (event) => {
 
     /*
-       If the browser restores the portfolio from its
-       back-forward cache, make sure the saved position
-       is still applied.
+       If the browser restores the page from its
+       back-forward cache, reapply the saved position.
     */
 
     if (!event.persisted) return;
@@ -361,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedPosition =
       sessionStorage.getItem(
-        PORTFOLIO_SCROLL_KEY
+        HAIVEXA_SCROLL_KEY
       );
 
 
@@ -394,19 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =======================================================
      BACK TO PORTFOLIO
      
-     This is used on individual project/demo pages.
-     
-     Example:
-     
-     <a
-       href="../index.html"
-       class="back-to-portfolio"
-     >
-       ← Back to Portfolio
-     </a>
-     
-     If the visitor came from the portfolio, the browser's
-     history is used instead of opening a fresh portfolio page.
+     Used on individual project/demo pages.
   ======================================================= */
 
   const backToPortfolio =
@@ -419,9 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       /*
          If there is a previous page in browser history,
-         go back to it.
-
-         This preserves the exact portfolio page position.
+         use it so the visitor returns to the same position.
       */
 
       if (window.history.length > 1) {
@@ -471,8 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       /*
-         Account for the sticky header so the section
-         heading does not sit underneath it.
+         Account for the sticky header.
       */
 
       const header =
@@ -552,7 +532,9 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener(
       "mouseenter",
       () => {
+
         card.classList.add("is-hovered");
+
       }
     );
 
@@ -560,7 +542,9 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener(
       "mouseleave",
       () => {
+
         card.classList.remove("is-hovered");
+
       }
     );
 
@@ -568,12 +552,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     YEAR
+     CURRENT YEAR
      
-     If the footer contains an element with:
+     Any element with:
+     
      class="current-year"
      
-     it will automatically show the current year.
+     will automatically display the current year.
   ======================================================= */
 
   const yearElements =
@@ -592,14 +577,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =======================================================
      SCROLL REVEAL
-     
-     Adds a subtle reveal effect to major sections/cards.
-     CSS controls the actual animation.
+
+     Includes the new HAIVEXA founder photo card.
   ======================================================= */
 
   const revealElements =
     document.querySelectorAll(
-      ".service-card, .project-card, .process-step, .price-card, .evidence, .about-card"
+      [
+        ".service-card",
+        ".project-card",
+        ".process-step",
+        ".price-card",
+        ".evidence",
+        ".founder-photo-card",
+        ".about-highlights > div"
+      ].join(", ")
     );
 
 
@@ -666,7 +658,7 @@ document.addEventListener("DOMContentLoaded", () => {
      ACCESSIBILITY
   ======================================================= */
 
-  // Keep the mobile menu state correct if JavaScript is active
+  // Keep the mobile menu state correct when JavaScript is active.
 
   if (toggle && nav) {
 
