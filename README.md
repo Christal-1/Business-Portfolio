@@ -44,7 +44,7 @@ HAIVEXA is designed to be broader than website development alone. The business c
 
 ## Contact
 
-**Email:** christalhaines@icloud.com
+**Email:** haivexa.business@gmail.com
 
 **WhatsApp:** +27 71 267 7342
 
